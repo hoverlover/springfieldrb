@@ -1,0 +1,13 @@
+.bundle
+db/*.sqlite3
+log/*
+tmp/*
+config/database.yml
+capybara-*.html
+.rspec
+/vendor/bundle
+/public/system/*
+/coverage/
+/spec/tmp/*
+*.swp
+.DS_Store

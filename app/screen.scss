@@ -1,0 +1,465 @@
+  @import "partials/base";
+  @import "partials/message_display";
+@import "partials/item_image";
+
+@mixin price {
+    color: $green;
+    font-weight: bold;
+}
+
+@mixin category {
+    color: $red;
+    font-weight: bold;
+    
+    a {
+        color: $red;
+        text-decoration: none;
+    }
+}
+
+@mixin common-filter {
+    background-color: rgba(255, 255, 255, 0.35);
+    padding: 2px 7px;
+    color: black;
+    font-weight: bold;
+    -moz-border-radius: 10px; -webkit-border-radius: 10px;
+    border: 2px solid $gray-border;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    //margin: 10px 0;
+    background-color: $dark-gray;
+    color: $text-color;
+    font-size: 12px;
+    font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+}
+
+.red {
+    color: $red;
+}
+
+p {
+    line-height: 1.3em;
+    margin-bottom: 10px;
+
+    a {
+        color: $red;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 18px;
+    padding-bottom: 16px;
+    color: $red;
+}
+
+h2 {
+    font-size: 16px;
+    padding-bottom: 16px;
+}
+
+h3 {
+    font-size: 14px;
+    padding-bottom: 14px;
+}
+
+a {
+    @include hover-link;
+    color: $text-color;
+}
+
+label {
+    text-align: right;
+    display: block;
+    font-size: 14px;
+}
+
+input[type='submit'] {
+  border: 1px solid gray;
+  padding: 6px;
+  font-size: 11px;
+
+  &:hover {
+    background-color: #A3A3A3;
+    cursor: pointer;
+  }
+}
+
+form table tr {
+
+    td {
+         padding: 5px;
+         
+         h2 {
+             @include common-filter;
+             margin-top: 20px;
+         }
+     }
+     
+     input[type=text] {
+         padding: 5px;
+         font-size: 14px;
+     }
+}
+
+ul {
+  padding-left: 30px;
+
+  li {
+    margin-bottom: 10px;
+  }
+}
+
+.center {
+  text-align: center;
+}
+
+.fieldWithErrors {
+    input, select, textarea {
+      background-color: red;
+    }
+}
+
+.clear {
+    clear: both;
+}
+
+.category {
+    @include category;
+}
+
+.pagination {
+    float: right;
+    span, a {
+      padding: 5px;
+    }
+
+    .current, a:hover {
+      text-decoration: none;
+      background-color: $dark-red;
+      border: 1px solid black;
+    }
+
+    a:hover {
+      margin: -1px;
+    }
+}
+
+.item-description-gallery {
+    font-size: 11px;
+    line-height: 1.4em;
+    margin-top: 5px;
+}
+
+.item-name {
+    //@include category;
+    font-weight: normal;
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+ul.categories {
+    margin-bottom: 40px;
+    
+    @include no-bullet;
+    padding-left: 0;
+    li {
+        margin-bottom: 3px;
+    }
+}
+
+.gallery-item {
+    padding: 10px 5px;
+    margin-bottom: 20px;
+    text-align: center;
+    
+    img {
+        border: 1px solid $dark-red;
+        margin-bottom: 10px;
+    }
+}
+
+.large-image {
+    float: left;
+
+    img {
+        border: 1px solid $dark-red;
+    }
+}
+
+#image-and-details {
+    position: relative;
+}
+
+.item-details {
+    height: 100%;
+    padding-left: 50px;
+}
+
+.item-description {
+    margin-top: 30px;
+}
+
+.price {
+    @include price;
+}
+
+.medium-price {
+    @include price;
+    font-size: 14px;
+    text-align: center;
+}
+
+.large-price {
+    @include price;
+    font-size: 18px;
+}
+
+.filter {
+    @include common-filter;
+}
+
+a.filter {
+    @include common-filter;
+    background-image: url('/images/cancel.png');
+    background-position: 95%;
+    background-repeat: no-repeat;
+    padding-right: 26px;
+    text-decoration: none;
+}
+
+.sold-out-indicator {
+    color: $red;
+    font-weight: bold;
+}
+
+#filter-section {
+    float: left;
+
+    div {
+        margin-bottom: 20px;
+    }
+}
+
+#logo {
+    float: left;
+    //position: relative;
+    //height: 80px;
+    //line-height: 100px;
+    //font-size: 26px;
+    //letter-spacing: 3px;
+    
+    a {
+        text-decoration: none;
+    }
+}
+
+#website-name {
+    float: left;
+    position: relative;
+    top: 80px;
+    left: 60px;
+    //height: 500px;
+    //line-height: 100px;
+    font-size: 26px;
+    letter-spacing: 3px;
+    vertical-align: text-bottom;
+    
+    a {
+        text-decoration: none;
+    }
+}
+
+#menu {
+    @include horizontal-list;
+    width: 100%;
+    text-align: center;
+    float: left;
+    font-size: 16px;
+    background-color: black; 
+    border-top: 1px solid #E5E5E5; 
+    border-bottom: 1px solid #E5E5E5; 
+    margin: 0 0 40px 0;
+
+    ul {
+      padding-left: 0;
+
+      li {
+        margin-bottom: 0;
+      }
+    }
+    
+    a {
+        display: block;
+        padding: 0 4.8em;
+        line-height: 70px;
+        text-decoration: none;
+
+        &:hover {
+            background-color: rgba(139, 16, 20, 0.25);
+        }
+    }
+}
+
+.menu-selected {
+    background-color: rgba(139, 16, 20, 0.25);
+}
+
+#shipping-blurb, .errorExplanation {
+    width: 480px;
+    border: 1px solid black;
+    background-color: rgba(139, 16, 20, 0.25);
+    line-height: 18px;
+    padding: 20px;
+
+    h3 {
+      color: gray;
+    }
+
+    ul {
+      padding-left: 18px;
+    }
+}
+
+#left-nav {
+    float: left;
+}
+
+#middle {
+    padding-top: 10px;
+}
+
+#main-content {
+    float: right;
+    padding-bottom: 30px;
+}
+
+#cart {
+    margin: 18px 0;
+    
+    table {        
+        $table-color: #ECECEC;
+        @include table-scaffolding;
+        @include inner-table-borders(1px, darken($table-color, 40%));
+        @include outer-table-borders(1px);
+        @include alternating-rows-and-columns($table-color, $table-color - 80, #3D3D3D, $red);
+
+        a {
+          color: black;
+        }
+        
+        th {
+            color: #ECECEC;
+            padding: 8px 15px;
+            font-size: 14px;
+            font-weight: normal;
+        }
+        
+        td {
+            text-align: center;
+            padding: 10px;
+            color: $dark-gray;
+            
+            .item {
+                padding-right: 8px;
+                vertical-align: middle;
+            }
+            
+            input[type=text], select {
+                text-align: center;
+                margin-top: 0;
+            }
+            
+            select {
+                width: 80px;
+            }
+        }
+        
+        td span.delete img {
+            vertical-align: middle;
+        }
+        
+        td.quantity {
+            text-align: center;
+        }
+    }
+}
+
+#order-details {
+    margin-top: 10px;
+    color: $text-color;
+
+    tr td {
+        padding: .4em 0;
+    }
+    
+    h2 {
+        margin-top: 1em;
+        color: $text-color;
+    }
+
+    label {
+        padding-right: .8em;
+        color: $red;
+    }
+}
+
+#header {
+    margin-top: 10px;
+    background: url('/images/header-bg.png') repeat-x bottom;
+}
+
+#header-24 {
+  position: relative;
+}
+
+#top-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 10px;
+
+  #mini-cart {
+      float: left;
+      background: url('/images/cart.png') no-repeat left center;
+      padding-left: 20px;
+  }
+
+  #secure-banner {
+      float: left;
+      background: url('/images/lock.png') no-repeat left center;
+      padding-left: 20px;
+      margin-right: 20px;
+  }
+}
+
+#footer {
+    padding-top: 20px;
+    height: 200px;
+    border-top: 2px solid black;
+    background: url('/images/footer-bg.png') repeat-x;
+
+    ul {
+        list-style-type: none;
+        float: left;
+        margin-right: 150px;
+    }
+
+    #copyright {
+        float: right;
+    }
+}
+
+#recaptcha_table {
+  position: relative;
+  left: 25%;
+}
