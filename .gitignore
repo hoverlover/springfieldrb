@@ -3,6 +3,7 @@ db/*.sqlite3
 log/*
 tmp/*
 config/database.yml
+public/stylesheets/compiled
 capybara-*.html
 .rspec
 /vendor/bundle
