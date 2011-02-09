@@ -12,7 +12,7 @@ feature "List Members" do
   scenario "on the home page" do
     visit home_page
 
-    all_members.each_with_index do |member, i|
+    all_members.each do |member|
       page.should have_content member.full_name
       page.should have_content member.github_username
       page.should have_content member.twitter_username
