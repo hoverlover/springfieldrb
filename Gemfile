@@ -6,6 +6,7 @@ gem 'haml-rails'
 gem 'compass'
 gem 'jquery-rails'
 gem 'inherited_resources'
+gem 'octopi'
 
 group :test do
   gem 'miniskirt', :git => 'git://github.com/hoverlover/miniskirt.git', :branch => 'gem'

@@ -12,10 +12,17 @@ feature "List Members" do
   scenario "on the home page" do
     visit home_page
 
-    all_members.each do |member|
-      page.should have_content member.full_name
-      page.should have_content member.github_username
-      page.should have_content member.twitter_username
+    within("ul") do
+      all_members.each_with_index do |member, i|
+        within(:li, i + 1) do
+          page.should have_content(member.full_name)
+
+          within("ul.social") do
+            find("li.github").text.should == member.github_username
+            find("li.twitter").text.should == member.twitter_username
+          end
+        end
+      end
     end
   end
 end
