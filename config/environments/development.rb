@@ -22,5 +22,7 @@ Springfieldrb::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
+
+  ENV["REDISTOGO_URL"] = 'redis://localhost:6379'
 end
 

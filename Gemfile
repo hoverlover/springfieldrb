@@ -7,6 +7,7 @@ gem 'compass'
 gem 'jquery-rails'
 gem 'inherited_resources'
 gem 'octopi'
+gem 'redis'
 
 group :test do
   gem 'miniskirt', :git => 'git://github.com/hoverlover/miniskirt.git', :branch => 'gem'
@@ -17,6 +18,7 @@ group :test do
 end
 
 group :development do
+  gem 'heroku'
   gem 'watchr'
   gem 'spork', '>=0.9.0.rc2'
   gem 'guard'

@@ -1,0 +1,5 @@
+%h1 Springfield.rb
+
+%h2 Members
+%ul#members
+  = render :collection => collection, :partial => resource_class.name.downcase

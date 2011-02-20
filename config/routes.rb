@@ -1,3 +1,5 @@
 Springfieldrb::Application.routes.draw do
-  root :to => 'home#index'
+  root :to => 'members#index'
+
+  resources :members
 end

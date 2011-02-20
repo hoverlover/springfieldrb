@@ -1,0 +1,17 @@
+%li
+  = member.full_name
+  %ul.social
+    %li.github
+      %span.username= member.github_username
+      %h3 Repositories
+      %ul.repositories
+        - member.github_repos.each do |repo|
+          %li= repo.name
+
+      %h3 Recent Commits
+      %ul.commits
+        - member.github_commits[0..20].each do |commit|
+          %li
+            [#{commit.repository.name} #{Date.parse(commit.committed_date).to_s}]
+            %span.commit-message= commit.message
+    %li.twitter= member.twitter_username

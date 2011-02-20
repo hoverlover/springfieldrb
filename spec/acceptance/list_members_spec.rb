@@ -9,17 +9,27 @@ feature "List Members" do
     Member.all
   end
 
-  scenario "on the home page" do
-    visit home_page
 
-    within("ul") do
+  scenario "all members" do
+    visit members_path
+
+    within("#members") do
       all_members.each_with_index do |member, i|
         within(:li, i + 1) do
           page.should have_content(member.full_name)
 
-          within("ul.social") do
-            find("li.github").text.should == member.github_username
-            find("li.twitter").text.should == member.twitter_username
+          within(".social") do
+            within(".github") do
+              page.should have_content(member.full_name)
+
+              within(".repositories") do
+                member.github_user.public_repos.each do |repo|
+                  page.should have_content(repo.name)
+                end
+              end
+            end
+
+            find(".twitter").text.should == member.twitter_username
           end
         end
       end
