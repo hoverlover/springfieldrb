@@ -17,6 +17,10 @@ group :test do
   gem 'rr'
 end
 
+group :production do
+  gem 'hassle', :git => 'git://github.com/koppen/hassle.git'
+end
+
 group :development do
   gem 'heroku'
   gem 'watchr'
