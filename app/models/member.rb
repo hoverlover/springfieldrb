@@ -8,11 +8,11 @@ class Member < ActiveRecord::Base
 
   def github_commits
     return [] unless (commits = REDIS.get("commits:#{github_username}")).present?
-    YAML.load(StringIO.new(commits))
+    YAML::load(commits)
   end
 
   def github_repos
     return [] unless (repos = REDIS.get("repositories:#{github_username}")).present?
-    YAML.load(StringIO.new(repos))
+    YAML::load(repos)
   end
 end
