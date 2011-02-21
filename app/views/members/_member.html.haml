@@ -2,16 +2,17 @@
   = member.full_name
   %ul.social
     %li.github
-      %span.username= member.github_username
+      %span.username= link_to member.github_username, "#{github_base_url}/#{member.github_username}"
       %h3 Repositories
       %ul.repositories
         - member.github_repos.each do |repo|
-          %li= repo.name
+          %li= link_to repo.name, repo.url
 
       %h3 Recent Commits
       %ul.commits
         - member.github_commits[0..20].each do |commit|
           %li
             [#{repo_name_from_commit_url(commit.url)} - #{Date.parse(commit.committed_date).to_s}]
+            %span.commit-sha= link_to short_sha(commit.id), github_base_url + commit.url
             %span.commit-message= commit.message
     %li.twitter= member.twitter_username
