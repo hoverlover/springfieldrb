@@ -1,5 +1,3 @@
-require 'github_api'
-
 class Member < ActiveRecord::Base
 
   scope :github_members, where('github_username is not null')

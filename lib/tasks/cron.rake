@@ -3,6 +3,6 @@ task :cron => :environment do
   require 'social_feeds_updater'
 
   puts "Updating social feeds ..."
-  SocialFeedsUpdater.update
+  SocialFeedsUpdater.new.update
   puts "done"
 end
