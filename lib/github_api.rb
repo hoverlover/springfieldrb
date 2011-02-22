@@ -19,12 +19,11 @@ module GitHubAPI
 
   def commits(username, branch = 'master')
     unless (repos = repositories(username)).empty?
-      commits = []
-      repos.each do |repo|
-        commits += JSON.to_ostruct(self.class.get("/commits/list/#{username}/#{repo.name}/#{branch}").body).commits
+      [].tap do |commits|
+        repos.each do |repo|
+          commits.concat JSON.to_ostruct(self.class.get("/commits/list/#{username}/#{repo.name}/#{branch}").body).commits
+        end
       end
-
-      commits.sort { |a,b| Time.parse(b.committed_date) <=> Time.parse(a.committed_date) }
     end
   end
 end
