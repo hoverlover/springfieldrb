@@ -17,11 +17,12 @@ module GitHubAPI
     JSON.to_ostruct(self.class.get("/repos/show/#{username}").body).repositories
   end
 
-  def commits(username, branch = 'master')
-    unless (repos = repositories(username)).empty?
-      [].tap do |commits|
-        repos.each do |repo|
-          commits.concat JSON.to_ostruct(self.class.get("/commits/list/#{username}/#{repo.name}/#{branch}").body).commits
+  def commits(username, branch = 'master', page = 1)
+    [].tap do |commits|
+      repositories(username).each do |repo|
+        response = self.class.get("/commits/list/#{username}/#{repo.name}/#{branch}?page=#{page}")
+        if response.code == 200
+          commits.concat JSON.to_ostruct(response.body).commits
         end
       end
     end
